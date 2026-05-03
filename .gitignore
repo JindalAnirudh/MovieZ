@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+
+# env files
+.env
+**/.env
+
+# build folders
+dist/
+build/
+
+# logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# optional
+coverage/
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+
+# npm/yarn
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Local development
+*.local
+
+# Temporary files
+.tmp/
+temp/
+*.bak

@@ -1,0 +1,13 @@
+<svg width="300" height="450" viewBox="0 0 300 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="300" height="450" fill="url(#gradient)"/>
+<path d="M150 180C165.464 180 178 167.464 178 152C178 136.536 165.464 124 150 124C134.536 124 122 136.536 122 152C122 167.464 134.536 180 150 180Z" fill="white" fill-opacity="0.3"/>
+<path d="M150 200C120 200 100 220 100 250V280H200V250C200 220 180 200 150 200Z" fill="white" fill-opacity="0.3"/>
+<text x="150" y="320" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">No Poster</text>
+<text x="150" y="340" text-anchor="middle" fill="white" font-family="Arial" font-size="12" opacity="0.8">Available</text>
+<defs>
+<linearGradient id="gradient" x1="0" y1="0" x2="300" y2="450" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8B5CF6"/>
+<stop offset="1" stop-color="#6D28D9"/>
+</linearGradient>
+</defs>
+</svg>
