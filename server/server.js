@@ -54,7 +54,7 @@ try {
 app.use('/api/stripe/webhook',express.raw({type:'application/json'}),stripeWebhooks)
 
 app.use(express.json())
-app.use(cors())
+app.use(cors()) 
 
 
 app.get('/',(req,res)=>res.send('Server is Live!'))
