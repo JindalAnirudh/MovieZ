@@ -17,6 +17,11 @@ const buildClient = () => {
 }
 
 export const nowPlaying = async (req, res) => {
+
+    console.log("TMDB KEY CHECK:", process.env.TMDB_API_KEY)
+
+
+
   const { key, isV4, headers, httpsAgent, timeout } = buildClient()
   if(!key) {
     console.error('TMDB_API_KEY is missing. Please set TMDB_API_KEY in your environment variables.')
