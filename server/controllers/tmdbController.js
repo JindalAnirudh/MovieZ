@@ -18,9 +18,6 @@ const buildClient = () => {
 
 export const nowPlaying = async (req, res) => {
 
-    console.log("TMDB KEY CHECK:", process.env.TMDB_API_KEY)
-
-
 
   const { key, isV4, headers, httpsAgent, timeout } = buildClient()
   if(!key) {
@@ -80,9 +77,9 @@ export const nowPlaying = async (req, res) => {
   try {
     const { data } = await doRequest('/movie/now_playing')
 
-      console.log("TMDB RESPONSE SAMPLE:", data.results[0])
+    
 
-      
+
     const payload = { success: true, results: data?.results || [], page: data?.page, total_pages: data?.total_pages }
     LAST_CACHE = { at: Date.now(), data: payload }
     return res.json(payload)

@@ -94,7 +94,7 @@ export const AppProvider=({children})=>{
             
             if(data?.success && Array.isArray(data.movies)){
                 console.log('Setting movies:', data.movies.length, 'movies found');
-                setNowPlaying(data.movies)
+                setNowPlaying(data.results)
             } else {
                 console.log('No movies found in response');
                 setNowPlaying([])

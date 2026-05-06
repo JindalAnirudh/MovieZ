@@ -24,7 +24,7 @@ const MovieCard = ({movie}) => {
 
         <img onClick={()=>{navigate(`/movies/${movie._id}`); scrollTo(0,0)}}
 
-         src={image_base_url + movie.backdrop_path} alt="" className='rounded-lg h-52 w-full
+         src={image_base_url + movie.poster_path} alt="" className='rounded-lg h-52 w-full
 
         object-cover object-right-bottom cursor-pointer' />
 
@@ -32,9 +32,7 @@ const MovieCard = ({movie}) => {
 
         <p className='text-sm text-gray-400 mt-2'>
 
-            {new Date(movie.release_date).getFullYear()} · {movie.genres.slice(0,2).map
-
-            (genre=>genre.name).join(" | ")} · {timeFormat(movie.runtime)}
+            {new Date(movie.release_date).getFullYear()} · {movie.genres.slice(0,2).map((genre=>genre.name)).join(" | ")} · {timeFormat(movie.runtime)}
 
         </p>
 
