@@ -308,6 +308,17 @@ export const addShow=async(req,res)=>{
             const showDate=show.date;
             show.time.forEach((time)=>{
                 const dateTimeString=`${showDate}T${time}`;
+                // Parse the datetime string - JS will treat it as UTC by default
+                let showDateTime = new Date(dateTimeString);
+                
+                // If timezone offset was provided, adjust to get the correct UTC time
+                // The offset tells us how many minutes local time is ahead/behind UTC
+                // We need to subtract it to get the actual UTC time the user meant
+                if(req.body.tzOffsetMinutes !== undefined){
+                  const offsetMs = req.body.tzOffsetMinutes * 60 * 1000;
+                  showDateTime = new Date(showDateTime.getTime() - offsetMs);
+                }
+                
                 const prices = showPrices && typeof showPrices === 'object' ? {
                   vip: Number(showPrices.vip) || undefined,
                   premium: Number(showPrices.premium) || undefined,
@@ -315,7 +326,7 @@ export const addShow=async(req,res)=>{
                 } : undefined
                 showsToCreate.push({
                   movie: movieId,
-                  showDateTime: new Date(dateTimeString),
+                  showDateTime,
                   // Backward compatibility: if prices not provided, keep flat showPrice
                   showPrice,
                   prices,

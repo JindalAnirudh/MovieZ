@@ -180,9 +180,12 @@ const AddShows = () => {
         return
       }
       const showsInput=Object.entries(dateTimeSelection).map(([date,time])=>({date,time}));
+      // Get timezone offset to send to backend for proper datetime conversion
+      const tzOffsetMinutes = new Date().getTimezoneOffset();
       const payload={
         movieId:selectedMovie,
         showsInput,
+        tzOffsetMinutes, // Send timezone offset for proper UTC conversion
         showPrice: showPrice ? Number(showPrice) : undefined,
         showPrices: (priceVip||pricePremium||priceNormal) ? {
           vip: priceVip ? Number(priceVip) : undefined,
