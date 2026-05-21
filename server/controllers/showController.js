@@ -313,10 +313,10 @@ export const addShow=async(req,res)=>{
                 
                 // If timezone offset was provided, adjust to get the correct UTC time
                 // The offset tells us how many minutes local time is ahead/behind UTC
-                // We need to subtract it to get the actual UTC time the user meant
+                // We add the offset to convert local time to UTC
                 if(req.body.tzOffsetMinutes !== undefined){
                   const offsetMs = req.body.tzOffsetMinutes * 60 * 1000;
-                  showDateTime = new Date(showDateTime.getTime() - offsetMs);
+                  showDateTime = new Date(showDateTime.getTime() + offsetMs);
                 }
                 
                 const prices = showPrices && typeof showPrices === 'object' ? {
